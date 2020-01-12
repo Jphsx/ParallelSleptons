@@ -38,8 +38,10 @@ for line in lines:
 	legendTitles.append("_".join(tname)+" "+"#Delta m = "+str(dm))
 	hists.append(h)
 #print maximums
-print legendTitles
+#print legendTitles
+
 dmname = listfilename[0:-5]
+print "writing "+dmname+" " +outfileopt
 frootout = TFile.Open("superSusy_"+dmname+".root",outfileopt)
 c = TCanvas(histname)
 #loop and draw max first
@@ -60,4 +62,5 @@ leg.SetBorderSize(1)
 leg.Draw()
 c.Write()
 frootout.Save()
+frootout.Close()
 	
