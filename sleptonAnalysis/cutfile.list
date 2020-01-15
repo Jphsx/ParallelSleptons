@@ -1,2 +1,14 @@
+Nlep 2.
+OppSign 0.
+SameFlavor 0.
+jpsiveto 0.
+nbtag 0.
+minMee 3.
+maxMee 60.
+minMuu 1.
+maxMuu 60.
+minNjets 1.
+minj1pt 100.
 minMET 120.
-minMu 2.
+mindphijMET 0.4
+mindphij1MET 2.

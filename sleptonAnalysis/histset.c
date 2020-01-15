@@ -25,7 +25,62 @@ class histset{
 	   //bookeeping enumeration: (if we do this we dont need to worry about hist ptr copies and merging)
 //	   enum th1d_index{ind_METHist, ind_cat0NjetSHist, ind_cat1NjetSHist, numTH1Hist};
 //	   enum th2d_index{ind_cat0PtcmPtisrDphiCMIHist, ind_cat1PtcmPtisrDphiCMIHist, numTH2Hist};
-	 enum th1d_index{ind_METHist,ind_genselLPt,  ind_gensmuLPt,ind_genselLEta, ind_gensmuLEta, ind_genselLPhi, ind_gensmuLPhi, ind_genselRPt, ind_gensmuRPt, ind_genselREta, ind_gensmuREta, ind_genselRPhi, ind_gensmuRPhi, ind_genLSPPt, ind_genLSPEta, ind_genLSPPhi, ind_genElePt, ind_genEleEta, ind_genElePhi, ind_genMuPt, ind_genMuEta, ind_genMuPhi, ind_Ele1Pt, ind_Ele2Pt, ind_EleM, ind_Mu1Pt, ind_Mu2Pt, ind_MuM, ind_Njet_ISR_C0, ind_Njet_ISR_C1, ind_Njet_S_C0, ind_Njet_S_C1, ind_Nlep_S_C0, ind_Nlep_S_C1, ind_Njet_a_C0, ind_Njet_a_C1, ind_Njet_b_C0, ind_Njet_b_C1, ind_Nlep_a_C0, ind_Nlep_a_C1, ind_Nlep_b_C0, ind_Nlep_b_C1, ind_PTCM_C0, ind_PTCM_C1, ind_MS_C0, ind_MS_C1, ind_PS_C0, ind_PS_C1, ind_PTISR_C0, ind_PTISR_C1, ind_RISR_C0, ind_RISR_C1, ind_MISR_C0, ind_MISR_C1 ,numTH1Hist};
+	 enum th1d_index{ind_METHist,ind_genselLPt,
+ 	 ind_gensmuLPt,
+	 ind_genselLEta, 
+	 ind_gensmuLEta, 
+	 ind_genselLPhi, 
+	 ind_gensmuLPhi, 
+	 ind_genselRPt,
+	 ind_gensmuRPt,
+	 ind_genselREta,
+	 ind_gensmuREta,
+	 ind_genselRPhi,
+	 ind_gensmuRPhi,
+	 ind_genLSPPt,
+	 ind_genLSPEta,
+	 ind_genLSPPhi,
+	 ind_genElePt,
+	 ind_genEleEta,
+	 ind_genElePhi,
+	 ind_genMuPt,
+	 ind_genMuEta,
+	 ind_genMuPhi,
+	 ind_Ele1Pt,
+	 ind_Ele2Pt,
+	 ind_EleM,
+	 ind_Mu1Pt,
+	 ind_Mu2Pt,
+	 ind_MuM,
+	 ind_Njet_ISR_C0,
+	 ind_Njet_ISR_C1,
+	 ind_Njet_S_C0,
+	 ind_Njet_S_C1,
+	 ind_Nlep_S_C0,
+	 ind_Nlep_S_C1,
+	 ind_Njet_a_C0,
+	 ind_Njet_a_C1,
+	 ind_Njet_b_C0,
+	 ind_Njet_b_C1,
+	 ind_Nlep_a_C0,
+	 ind_Nlep_a_C1,
+	 ind_Nlep_b_C0,
+	 ind_Nlep_b_C1,
+	 ind_PTCM_C0,
+	 ind_PTCM_C1,
+	 ind_MS_C0,
+	 ind_MS_C1,
+	 ind_PS_C0,
+	 ind_PS_C1,
+	 ind_PTISR_C0,
+	 ind_PTISR_C1,
+	 ind_RISR_C0,
+	 ind_RISR_C1,
+	 ind_MISR_C0,
+	 ind_MISR_C1 ,
+	 ind_RISRlow_C0,
+	 ind_RISRlow_C1,
+	numTH1Hist};
 	 enum th2d_index{numTH2Hist};
 	
 
@@ -176,35 +231,36 @@ void histset::init(){
 	
 	//susy special variables seperated between cat0 & cat1 => C0 C1 
 	//cat 0
-	TH1Manager.at(ind_Njet_ISR_C0) =new hist("Njet_ISR_C0", "N ISR Jets 0;N jets",11,-0.5,10.5);
-	TH1Manager.at(ind_Njet_S_C0) =new hist("Njet_S_C0", "N S Jets 0; N jets",11,-0.5,10.5);
-	TH1Manager.at(ind_Nlep_S_C0) = new hist("Nlep_S_C0", "N S Lep 0; N Lep",11,-0.5,10.5);
-	TH1Manager.at(ind_Njet_a_C0) = new hist("Njet_a_C0", "N jets A 0; N jets",11,-0.5,10.5);
-	TH1Manager.at(ind_Njet_b_C0) = new hist("Njet_b_C0", "N jets B 0; N jets",11,-0.5,10.5);
-	TH1Manager.at(ind_Nlep_a_C0) = new hist("Nlep_a_C0", "N Lep A 0; N Lep",11,-0.5,10.5);
-	TH1Manager.at(ind_Nlep_b_C0) = new hist("Nlep_b_C0", "N Lep B 0; N Lep",11,-0.5,10.5);
-	TH1Manager.at(ind_PTCM_C0) = new hist("PTCM_C0", "PTCM 0; GeV; Entries per 10 GeV bin",10,0,100);
-	TH1Manager.at(ind_MS_C0) = new hist("MS_C0", "MS 0; ;Entries per 50 bin",60,0,3000);
-	TH1Manager.at(ind_PS_C0) = new hist("PS_C0", "PS 0; ;Entries per 20 bin",50,0.,1000.);
-	TH1Manager.at(ind_PTISR_C0) = new hist("PTISR_C0", "PTISR 0;GeV;Entries per 20 GeV bin",50,0,1000);
-	TH1Manager.at(ind_RISR_C0) = new hist("RISR_C0", "RISR 0; ;Entries per 0.5 bin",100,0,20);
-	TH1Manager.at(ind_MISR_C0) = new hist("MISR_C0", "MISR 0; ;Entries per 20 bin",50,0.,1000);
+	TH1Manager.at(ind_Njet_ISR_C0) =new hist("Njet_ISR_C0", "N ISR Jets 0;N jets",9,-0.5,8.5);
+	TH1Manager.at(ind_Njet_S_C0) =new hist("Njet_S_C0", "N S Jets 0; N jets",9,-0.5,8.5);
+	TH1Manager.at(ind_Nlep_S_C0) = new hist("Nlep_S_C0", "N S Lep 0; N Lep",6,-0.5,5.5);
+	TH1Manager.at(ind_Njet_a_C0) = new hist("Njet_a_C0", "N jets A 0; N jets",5,-0.5,4.5);
+	TH1Manager.at(ind_Njet_b_C0) = new hist("Njet_b_C0", "N jets B 0; N jets",5,-0.5,4.5);
+	TH1Manager.at(ind_Nlep_a_C0) = new hist("Nlep_a_C0", "N Lep A 0; N Lep",6,-0.5,5.5);
+	TH1Manager.at(ind_Nlep_b_C0) = new hist("Nlep_b_C0", "N Lep B 0; N Lep",5,-0.5,4.5);
+	TH1Manager.at(ind_PTCM_C0) = new hist("PTCM_C0", "PTCM 0; GeV; Entries per 10 GeV bin",15,0,150);
+	TH1Manager.at(ind_MS_C0) = new hist("MS_C0", "MS 0; ;Entries per 100 bin",30,0,3000);
+	TH1Manager.at(ind_PS_C0) = new hist("PS_C0", "PS 0; ;Entries per 40 bin",25,0.,1000.);
+	TH1Manager.at(ind_PTISR_C0) = new hist("PTISR_C0", "PTISR 0;GeV;Entries per 40 GeV bin",25,0,1000);
+	TH1Manager.at(ind_RISR_C0) = new hist("RISR_C0", "RISR 0; ;Entries per 2 bin",10,0,20);
+	TH1Manager.at(ind_MISR_C0) = new hist("MISR_C0", "MISR 0; ;Entries per 50 bin",14,0.,700);
+	TH1Manager.at(ind_RISRlow_C0) = new hist("RISRlow_C0", "RISR 0; ;Entries per 0.2 bin",10,0,2);
 
 	//cat1
-      	TH1Manager.at(ind_Njet_ISR_C1) = new hist("Njet_ISR_C1", "N ISR Jets 1;N jets",11,-0.5,10.5);
-        TH1Manager.at(ind_Njet_S_C1) = new hist("Njet_S_C1", "N S Jets 1; N jets",11,-0.5,10.5);
-        TH1Manager.at(ind_Nlep_S_C1) = new hist("Nlep_S_C1", "N S Lep 1; N Lep",11,-0.5,10.5);
-        TH1Manager.at(ind_Njet_a_C1) = new hist("Njet_a_C1", "N jets A 1; N jets",11,-0.5,10.5);
-        TH1Manager.at(ind_Njet_b_C1) = new hist("Njet_b_C1", "N jets B 1; N jets",11,-0.5,10.5);
-        TH1Manager.at(ind_Nlep_a_C1) = new hist("Nlep_a_C1", "N Lep A 1; N Lep",11,-0.5,10.5);
-        TH1Manager.at(ind_Nlep_b_C1) = new hist("Nlep_b_C1", "N Lep B 1; N Lep",11,-0.5,10.5);
-        TH1Manager.at(ind_PTCM_C1) = new hist("PTCM_C1", "PTCM 1; GeV; Entries per 10 GeV bin",10,0,100);
-        TH1Manager.at(ind_MS_C1) = new hist("MS_C1", "MS 1; ;Entries per 50 bin",60,0,3000);
-        TH1Manager.at(ind_PS_C1) = new hist("PS_C1", "PS 1; ;Entries per 20 bin",50,0.,1000.);
-        TH1Manager.at(ind_PTISR_C1) = new hist("PTISR_C1", "PTISR 1;GeV;Entries per 20 GeV bin",50,0,1000);
-        TH1Manager.at(ind_RISR_C1) = new hist("RISR_C1", "RISR 1; ;Entries per 0.5 bin",100,0,20);
-        TH1Manager.at(ind_MISR_C1) = new hist("MISR_C1", "MISR 1; ;Entries per 20 bin",50,0.,1000);
-	
+      	TH1Manager.at(ind_Njet_ISR_C1) = new hist("Njet_ISR_C1", "N ISR Jets 1;N jets",9,-0.5,8.5);
+        TH1Manager.at(ind_Njet_S_C1) = new hist("Njet_S_C1", "N S Jets 1; N jets",9,-0.5,8.5);
+        TH1Manager.at(ind_Nlep_S_C1) = new hist("Nlep_S_C1", "N S Lep 1; N Lep",6,-0.5,5.5);
+        TH1Manager.at(ind_Njet_a_C1) = new hist("Njet_a_C1", "N jets A 1; N jets",5,-0.5,4.5);
+        TH1Manager.at(ind_Njet_b_C1) = new hist("Njet_b_C1", "N jets B 1; N jets",5,-0.5,4.5);
+        TH1Manager.at(ind_Nlep_a_C1) = new hist("Nlep_a_C1", "N Lep A 1; N Lep",6,-0.5,5.5);
+        TH1Manager.at(ind_Nlep_b_C1) = new hist("Nlep_b_C1", "N Lep B 1; N Lep",5,-0.5,4.5);
+        TH1Manager.at(ind_PTCM_C1) = new hist("PTCM_C1", "PTCM 1; GeV; Entries per 10 GeV bin",15,0,150);
+        TH1Manager.at(ind_MS_C1) = new hist("MS_C1", "MS 1; ;Entries per 100 bin",30,0,3000);
+        TH1Manager.at(ind_PS_C1) = new hist("PS_C1", "PS 1; ;Entries per 40 bin",25,0.,1000.);
+        TH1Manager.at(ind_PTISR_C1) = new hist("PTISR_C1", "PTISR 1;GeV;Entries per 40 GeV bin",25,0,1000);
+        TH1Manager.at(ind_RISR_C1) = new hist("RISR_C1", "RISR 1; ;Entries per 2 bin",10,0,20);
+        TH1Manager.at(ind_MISR_C1) = new hist("MISR_C1", "MISR 1; ;Entries per 50 bin",14,0.,700);
+	TH1Manager.at(ind_RISRlow_C1) = new hist("RISRlow_C1", "RISR 1; ;Entries per 0.2 bin",10,0,2);	
 	
 
 }
@@ -216,6 +272,7 @@ void printvec(std::ofstream& f, std::vector<type> vec){
 	f<<"\n";
 }
 void histset::printSelectionTables(std::ofstream& f){
+	std::setprecision(10);
 	f<<_tag<<" "<<" "<<"no_w\n";
 	printvec( f, _cutsequence );
 	printvec( f, _npass );
@@ -277,9 +334,7 @@ void histset::WriteHist(std::string outputfilename, std::string TFileOption){
 void histset::AnalyzeEntry(myselector& s){
    	
 	//always make a local copy, if its a value dereference.. if you dont do this scope/dereferencing will get really weird, clunky, and unmanageable
-	//have to auto& or myreader will try to register copy of the readerarray ptr
-	auto MET = *(s.MET);
-	auto Nmu = *(s.Nmu);	
+	//have to auto& or myreader will try to register copy of the readerarray ptr	
 	auto weight = *(s.weight);
 
 	//variables needed for gen level susy stuff
@@ -304,6 +359,17 @@ void histset::AnalyzeEntry(myselector& s){
 	auto& Charge_lep = s.Charge_lep;
 	auto& PDGID_lep =s.PDGID_lep;
 	auto& M_lep = s.M_lep;
+
+	auto Nbjet = *(s.Nbjet);
+	auto Njet = *(s.Njet);
+
+	auto MET = *(s.MET);
+	auto MET_phi = *(s.MET_phi);
+	auto& PT_jet = s.PT_jet;
+	auto& Phi_jet = s.Phi_jet;
+
+	
+
 
 	//susy vars
 	auto& Njet_ISR = s.Njet_ISR;
@@ -391,6 +457,11 @@ void histset::AnalyzeEntry(myselector& s){
 	//collect leading and sub leading reco leps require OSSF
 	//highest pt lep determines flavor of event
 	//leps are pre sorted by PT
+	double SF = 0.0;
+	double mll;
+	bool isEle = false;
+	bool isMu = false;
+	double q1q2 = 0;
 	if( Nlep > 1){
 		int leadpdg;
 		int leadq;
@@ -404,21 +475,29 @@ void histset::AnalyzeEntry(myselector& s){
 		double subleading_PT = 0.0;
 		for(int i=1; i<PDGID_lep.GetSize(); i++){
 			if( (leadpdg == abs(PDGID_lep[i])) &&  ((leadq*Charge_lep[i]) <0) ){
+				q1q2 = leadq*Charge_lep[i];
 				subleading_PT = PT_lep[i];
 				L2.SetPtEtaPhiM(PT_lep[i], Eta_lep[i], Phi_lep[i], M_lep[i]);
 				break;
 			}
 		}
 		TLorentzVector L1L2 = L1+L2;
+		mll = L1L2.M();
 		if(leadpdg == 11){
 			FillTH1(ind_Ele1Pt, L1.Pt(), w);
 			FillTH1(ind_Ele2Pt, L2.Pt(), w);
-			FillTH1(ind_EleM, L1L2.M(), w);  
+			FillTH1(ind_EleM, L1L2.M(), w); 
+			isEle = true; 
 		}	
 		if(leadpdg == 13){
 			FillTH1(ind_Mu1Pt, L1.Pt(), w);
 			FillTH1(ind_Mu2Pt, L2.Pt(), w);
 			FillTH1(ind_MuM, L1L2.M(), w);
+			isMu = true;
+		}
+		if(subleading_PT > 0.0){
+			//flavor match has been found
+			SF= 1.0;	
 		}
 
 	}
@@ -440,6 +519,7 @@ void histset::AnalyzeEntry(myselector& s){
 			FillTH1(ind_PTISR_C0, PTISR[i], w);
 			FillTH1(ind_RISR_C0, RISR[i], w);
 			FillTH1(ind_MISR_C0, MISR[i], w);
+			FillTH1(ind_RISRlow_C0, RISR[i], w);
 		}
 		if(i==1){
 		//cat 1
@@ -456,18 +536,42 @@ void histset::AnalyzeEntry(myselector& s){
 			FillTH1(ind_PTISR_C1, PTISR[i], w);
 			FillTH1(ind_RISR_C1, RISR[i], w);
 			FillTH1(ind_MISR_C1, MISR[i], w);
+			FillTH1(ind_RISRlow_C1, RISR[i], w);
 
 		}
 
 	}
 	
+	//MET Calculation	
+	double METx = MET*cos(MET_phi);
+	double METy = MET*sin(MET_phi);	
+	double mindphijMET=4.0;
+	double mindphij1MET;
+	double jetx, jety;
+	TVector2 METv(METx, METy);
+	TVector2 Jetv;
+	double dphi;
+	for(int i=0; i<Njet; i++){
+		jetx = PT_jet[i] * cos(Phi_jet[i]);	
+		jety = PT_jet[i] * sin(Phi_jet[i]);
+		Jetv.Set(jetx,jety);
+		dphi = METv.DeltaPhi(Jetv);
+		if(dphi < mindphijMET){
+			mindphijMET = dphi;
+		}
+		if(i==0){
+			mindphij1MET = dphi;
+		}
+	}
 
 	
+			
 
 
 	//event selection
 	//iterate over cut sequence, apply operators and values
 	bool pass;
+	bool pass2; //for vetoing specific regions
         for(unsigned int i=0; i<_cutsequence.size(); i++){
                 std::string cut = _cutsequence.at(i);
 		double cutvalue = _cutval.at(i);
@@ -481,10 +585,97 @@ void histset::AnalyzeEntry(myselector& s){
 			pass = performcut( _npassw[i], weight, MET, cutvalue, std::greater<double>());		
                         if(!pass) break;
                 }
-                if( cut.compare("minMu")==0){
-               		pass = performcut( _npass[i],1, Nmu, cutvalue, std::greater_equal<double>());
-                        pass = performcut( _npassw[i],weight,Nmu,cutvalue,std::greater_equal<double>());
+       		if( cut.compare("Nlep")==0){
+			pass = performcut( _npass[i],1, Nlep, cutvalue, std::equal_to<double>());
+			pass = performcut( _npassw[i],weight, Nlep, cutvalue, std::equal_to<double>());
 			if(!pass) break;
+		}
+		if( cut.compare("OppSign")==0){
+			pass = performcut( _npass[i],1,q1q2,cutvalue, std::less<double>());
+			pass = performcut( _npassw[i],weight, q1q2, cutvalue, std::less<double>());
+			if(!pass) break;
+		}
+		if( cut.compare("SameFlavor")==0){
+			pass = performcut( _npass[i], 1, SF, cutvalue, std::greater<double>());
+			pass = performcut( _npassw[i], weight, SF, cutvalue, std::greater<double>());
+	
+			if(!pass) break;
+		}
+		if(cut.compare("jpsiveto")==0){
+			double temp;
+			pass = performcut( temp, 1, mll, 3., std::greater<double>());
+			pass2 = performcut( temp, 1, mll, 3.2, std::less<double>());	
+
+			//if inside mass region pass=true and pass2=true, if both true: veto
+			
+			if(!pass || !pass2){
+				_npass[i] = _npass[i] + 1.0;
+				_npassw[i]+= weight;
+			}
+			if((pass && pass2)) break;
+
+		}
+		if(cut.compare("nbtag")==0){
+			pass = performcut( _npass[i],1, Nbjet, cutvalue, std::equal_to<double>()); 
+			pass = performcut( _npassw[i],weight, Nbjet, cutvalue, std::equal_to<double>());
+
+			if(!pass) break;
+		}
+		if(cut.compare("minMee")==0){
+			if(isEle){
+				pass = performcut( _npass[i], 1, mll, cutvalue, std::greater<double>());
+				pass = performcut( _npassw[i], weight, mll, cutvalue, std::greater<double>());
+
+				if(!pass) break;
+			}
+		}	
+		if(cut.compare("maxMee")==0){
+			if(isEle){
+				pass = performcut( _npass[i], 1, mll, cutvalue, std::less<double>());
+				pass = performcut( _npassw[i], weight, mll, cutvalue, std::less<double>());
+			
+				if(!pass) break;
+			}
+		}
+		if(cut.compare("minMuu")==0){
+			if(isMu){
+				pass = performcut( _npass[i], 1, mll, cutvalue, std::greater<double>());
+				pass = performcut( _npassw[i], weight, mll, cutvalue, std::greater<double>());	
+				
+				if(!pass) break;
+			}
+		}
+		if(cut.compare("maxMuu")==0){
+			if(isMu){
+				pass = performcut( _npass[i], 1, mll, cutvalue, std::less<double>());
+				pass = performcut( _npassw[i], weight, mll, cutvalue, std::less<double>());
+
+				if(!pass) break;
+			}
+		}
+		if(cut.compare("minNjets")==0){
+			pass = performcut( _npass[i], 1, Njet, cutvalue, std::greater_equal<double>());
+			pass = performcut( _npassw[i], weight, Njet, cutvalue, std::greater_equal<double>());
+		
+			if(!pass) break;
+		}
+		if(cut.compare("minj1pt")==0){
+			pass = performcut( _npass[i], 1, PT_jet[0], cutvalue, std::greater_equal<double>());
+			pass = performcut( _npassw[i], weight, PT_jet[0], cutvalue, std::greater_equal<double>());
+
+			if(!pass) break;
+		}			
+		if(cut.compare("mindphijMET")==0){
+			pass = performcut(_npass[i], 1, mindphijMET, cutvalue, std::greater<double>());
+			pass = performcut(_npassw[i], weight, mindphijMET, cutvalue, std::greater<double>());
+
+			if(!pass) break;
+		}
+		if(cut.compare("mindphij1MET")==0){
+			pass = performcut(_npass[i], 1, mindphij1MET, cutvalue, std::greater<double>());
+			pass = performcut(_npassw[i], weight, mindphij1MET, cutvalue, std::greater<double>());
+
+			if(!pass) break;	
 		}
              
 	}//end cut sequence loop	

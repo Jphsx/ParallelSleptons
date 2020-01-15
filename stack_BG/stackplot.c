@@ -20,7 +20,7 @@ void stackplot(std::string histname, std::string fileOpt ){
 	//2f from f1
 	//collect BG
 	
-	std::vector<std::string> _BG{"TT","WJ","DY"};
+	std::vector<std::string> _BG{"TT","WJ","DY", "WW", "WZ", "ZZ"};
 	std::vector<TH1D*> _BGH(_BG.size());
 	
 	//populatehists

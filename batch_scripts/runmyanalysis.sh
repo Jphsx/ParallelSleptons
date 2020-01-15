@@ -26,7 +26,7 @@ pwd
 #input is: num files, numthreads,  yourdata.list
 # Note any change to the thread count needs to also be in the job description file ..
 #python2 ${CODEDIR}/runmacro.py 0 24 ${INPUTLIST}
-python2 ${CODEDIR}/runmacro.py 0 24 ${INPUTLIST} ${TREE} ${TAG} "susyHists.root" "RECREATE"
+python2 ${CODEDIR}/runmacro.py 0 8 ${INPUTLIST} ${TREE} ${TAG} "susyHists.root" "RECREATE"
 
 #Need to find some way of having several of these in parallel ...
 #cp Outfile.root ${CODEDIR}/PC_${INPUT}.root

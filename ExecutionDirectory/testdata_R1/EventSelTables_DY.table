@@ -1,8 +1,8 @@
 DY  no_w
-nocut minMET minMu 
-1907 1201 117 
+nocut Nlep OppSign SameFlavor jpsiveto nbtag minMee maxMee minMuu maxMuu minNjets minj1pt minMET mindphijMET mindphij1MET 
+1907 489 350 349 350 259 112 31 146 37 68 65 51 3 3 
 
 DY  w
-nocut minMET minMu 
-0.484187 0.304499 0.0298629 
+nocut Nlep OppSign SameFlavor jpsiveto nbtag minMee maxMee minMuu maxMuu minNjets minj1pt minMET mindphijMET mindphij1MET 
+0.483931 0.124301 0.0890781 0.0890781 0.0893333 0.0661067 0.0285867 0.00791238 0.0372648 0.00944381 0.0173562 0.0165905 0.0130171 0.000765714 0.000765714 
 

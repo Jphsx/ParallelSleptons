@@ -21,7 +21,7 @@ def bash( bashCommand ):
 #create a master key for treename, tag, filekey
 # "filekey:treename:tag"
 #simple dictionary-like, a vector of strings to be split with a delimiter
-masterkey = ["DYJetsToLL:KUAnalysis:DY", "TSlepSlep:SMS:SS", "TTJets:KUAnalysis:TT", "WJetsToLNu:KUAnalysis:WJ"]
+masterkey = ["DYJetsToLL:KUAnalysis:DY", "TSlepSlep:SMS:SS", "TTJets:KUAnalysis:TT", "WJetsToLNu:KUAnalysis:WJ", "WWTo2L2Nu:KUAnalysis:WW" , "WWToLNuQQ:KUAnalysis:WW", "WZTo1L1Nu2Q:KUAnalysis:WZ", "WZTo1L3Nu:KUAnalysis:WZ", "WZTo2L2Q:KUAnalysis:WZ", "WZTo3LNu:KUAnalysis:WZ", "ZZTo2L2Nu:KUAnalysis:ZZ", "ZZTo2L2Q:KUAnalysis:ZZ", "ZZTo4L:KUAnalysis:ZZ" ]
 
 cmd = "ls datalists"
 LS = bash(cmd)
